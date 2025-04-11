@@ -7,6 +7,7 @@ from appium.options.ios import XCUITestOptions
 from selenium import webdriver
 from selene import browser
 from dotenv import load_dotenv
+from utils import attach
 
 
 def general_settings(options):
@@ -55,7 +56,7 @@ def android_management():
     general_settings(options)
 
     yield
-
+    attach.attach_screenshot(browser)
     browser.quit()
 
 
@@ -87,5 +88,5 @@ def ios_management():
     general_settings(options)
 
     yield
-
+    attach.attach_screenshot(browser)
     browser.quit()
